@@ -1,1 +1,10 @@
 <p>edit-todo works!</p>
+<h1>Edit Todo</h1>
+
+<form [formGroup] = "editTaskForm" >
+  <div class="form-group">
+  <label >New Task</label>
+    <input type="text" style="width: 100%;" #demo formControlName="task" placeholder="add new task">
+</div>
+<button (click)="update()">submit</button>
+</form>

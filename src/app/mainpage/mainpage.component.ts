@@ -25,5 +25,28 @@ export class MainpageComponent implements OnInit {
     });
   }
 
+  done(event : any, id : number)
+  {
+   console.log(id, event.target.checked);
+   const status = event.target.checked ? 1 : 0;
+   this._rest.doneTodo(id, status).subscribe((resp) => {
+    console.log(resp);
+    this.getAllTodos();
+   }, err => {
+    console.log(err)
+   }
+   )
+  }
+
+  delete(id: number){
+    this._rest.deleteTodo(id).subscribe(resp => {
+      console.log(resp);
+      this.getAllTodos();
+    } , err => {
+      console.log(err)
+    })
+  }
 
 }
+
+// alert("hello")

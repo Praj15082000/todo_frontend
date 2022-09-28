@@ -1,7 +1,58 @@
-<h1>Prajwal </h1>
+<!-- <body>
+<h2 class="edit" > fggdj </h2>
+<header>
+   <h3>Task List 2021</h3>
+   <form id="new-task-form">
+    <input type="text" class="input" id="new-task-input" placeholder="what do you have planned?">
+    <input type="submit" class="btn btn-success"   id="new-task-submit" value="add task">
+   </form>
+</header>
+
+  <main>
+    <section class="task-list">
+      <h2>Task</h2>
+      <div id="tasks">
+        <div class="task">
+          <div class="content">
+            <a href="#" class="list-group-item list-group-item-action " *ngFor="let task of todos">{{task.task}}
+              </a>
+            </div>
+          <div class="actions">
+            <button class="edit">Edit</button>
+            <button class="delete">Delete</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body> -->
+
+<h1>Prajwal
+
+  <button class="btn btn-success"  routerLink="/add">Add todo</button>
+</h1>
 <!-- Hover added -->
 <div class="list-group">
-  <!-- <a href="#" class="list-group-item list-group-item-action " *ngFor="let task of todos">{{task.task}}</a> -->
-  <a href="#" class="list-group-item list-group-item-action " *ngFor="let todo of todos">{{todo.task}}</a>
-
+  <a class="list-group-item list-group-item-action"
+    [ngClass]="{ done: task.status == 1 }"
+    *ngFor="let task of todos">
+    <div class="form-check">
+      <label>
+        <input
+          type="checkbox"
+          [checked]="task.status == 1"
+          (change)="done($event, task.id)"/>
+      </label>
+    </div>
+    ({{ task.id }})-{{ task.task }}-{{
+      task.status == 0 ? "not done" : "done"
+    }}
+   <div style="width: 100%; text-align: right">
+    <button class="btn btn-sm btn-warning"  [routerLink]="['/edit',  task.id]">Edit task</button>
+    <button class="btn btn-sm btn-danger" (click)="delete(task.id)">Delete task</button>
+  </div>
+    </a>
+  <!-- <a href="#" class="list-group-item list-group-item-action " *ngFor="let todo of todos">{{todo.task}}</a> -->
 </div>
+
+

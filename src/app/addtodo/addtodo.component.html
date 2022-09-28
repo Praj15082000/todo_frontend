@@ -1,1 +1,15 @@
 <p>addtodo works!</p>
+
+<button class="btn btn-danger" [routerLink]="['/home']">Back</button>
+<h1>ADD New Task</h1>
+
+<form [formGroup]="todoForm"  (submit)="add()">
+  <div class="form-group">
+  <label >New Task</label>
+    <input type="text" style="width: 100%;"  formControlName="task" placeholder="add new task">
+</div>
+<button>submit</button>
+</form>
+
+{{this.todoForm.value |json}}
+
